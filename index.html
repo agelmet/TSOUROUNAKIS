@@ -8,14 +8,18 @@
     <meta name="description" content="Αντώνης Τσουρουνάκης (MSc), αδειούχος Ψυχολόγος - Ψυχοθεραπευτής. Συνθετική Ψυχοθεραπεία σε Χανιά, Ιλίσια και διαδικτυακά. Κατανοώντας τη δική σας μοναδική οπτική για τον κόσμο.">
     <meta name="robots" content="index, follow">
     
+    <!-- Favicon -->
     <link rel="icon" href="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/logo_transparency.png" type="image/png">
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -61,6 +65,7 @@
         }
     </script>
 
+    <!-- Custom CSS -->
     <style>
         body { background-color: #c3c3b9; color: #304836; overflow-x: hidden; }
         
@@ -90,6 +95,10 @@
         .img-editorial { transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 1s ease; }
         .group:hover .img-editorial { transform: scale(1.03); filter: brightness(0.95); }
 
+        /* Services Cards Advanced Hover */
+        .service-card { transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .service-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -15px rgba(0,0,0,0.3); }
+
         /* Marquee */
         .marquee-container { display: flex; width: 200%; }
         .marquee-container:hover { animation-play-state: paused; }
@@ -100,17 +109,20 @@
         #lightbox img { transform: scale(0.95); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
         #lightbox.active img { transform: scale(1); }
 
-        /* Masonry Grid */
-        .masonry { column-count: 1; column-gap: 1.5rem; }
-        @media (min-width: 640px) { .masonry { column-count: 2; } }
-        @media (min-width: 1024px) { .masonry { column-count: 3; } }
-        .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
+        /* Masonry Grid - Symmetric & Smaller items */
+        .masonry { column-count: 2; column-gap: 1rem; }
+        @media (min-width: 640px) { .masonry { column-count: 3; } }
+        @media (min-width: 1024px) { .masonry { column-count: 5; } }
+        @media (min-width: 1280px) { .masonry { column-count: 6; } }
+        .masonry-item { break-inside: avoid; margin-bottom: 1rem; }
     </style>
 
+    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="font-sans antialiased selection:bg-brand-ochre selection:text-white">
 
+    <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 border-b border-transparent">
         <div class="max-w-[90rem] mx-auto px-6 flex justify-between items-center">
             <a href="#" class="group relative flex items-center justify-center w-24 h-24 bg-brand-parchment/10 backdrop-blur-md rounded-full shadow-[0_10px_40px_rgba(48,72,54,0.15)] border border-brand-parchment/20 transition-all duration-700 hover:shadow-[0_15px_50px_rgba(165,118,47,0.3)] hover:border-brand-ochre/50 animate-float">
@@ -130,6 +142,7 @@
             </button>
         </div>
 
+        <!-- Mobile Menu -->
         <div id="mobile-menu" class="absolute top-full left-0 w-full bg-brand-forest/95 backdrop-blur-lg shadow-2xl hidden flex-col items-center py-10 space-y-8 border-t border-brand-parchment/10">
             <a href="#about" class="text-brand-parchment text-lg tracking-widest mobile-link">ΠΡΟΦΙΛ</a>
             <a href="#services" class="text-brand-parchment text-lg tracking-widest mobile-link">ΥΠΗΡΕΣΙΕΣ</a>
@@ -139,16 +152,21 @@
         </div>
     </nav>
 
+    <!-- Hero Section -->
     <section class="relative min-h-[100svh] flex flex-col justify-center overflow-hidden bg-brand-forest">
+        <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-            <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/herots2.jpg" alt="Αντώνης Τσουρουνάκης" class="w-full h-full object-cover object-center md:object-right opacity-60 md:opacity-80 animate-slow-pan">
+            <!-- Changed object position for mobile to [25%_center] to reveal the face -->
+            <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/herots2.jpg" alt="Αντώνης Τσουρουνάκης" class="w-full h-full object-cover object-[25%_center] md:object-[60%_center] opacity-60 md:opacity-80 animate-slow-pan">
             <div class="absolute inset-0 bg-gradient-to-r from-brand-forest/90 via-brand-forest/50 to-transparent"></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-brand-forest via-transparent to-transparent md:hidden"></div>
+            <!-- Darker bottom gradient for mobile readability -->
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-forest/90 via-transparent to-transparent md:hidden"></div>
         </div>
 
-        <div class="relative z-10 max-w-[90rem] mx-auto px-6 w-full flex flex-col md:flex-row items-center md:items-start h-full pt-32 pb-20">
+        <!-- Pushed text container further down on mobile using pt-64 / mt-16 -->
+        <div class="relative z-10 max-w-[90rem] mx-auto px-6 w-full flex flex-col md:flex-row items-center md:items-start h-full pt-64 md:pt-32 pb-20 mt-16 md:mt-0">
             <div class="w-full md:w-3/5 text-center md:text-left mt-auto md:mt-0 mobile-hero-text" id="hero-text-container">
-                <span class="subtle-tracking text-brand-ochre text-xs md:text-sm mb-6 block animate-fade-in-up">Αντωνης Τσουρουνακης, MSc</span>
+                <span class="subtle-tracking text-brand-ochre text-xs md:text-sm mb-6 block animate-fade-in-up">ΑΝΤΩΝΗΣ ΤΣΟΥΡΟΥΝΑΚΗΣ, MSC</span>
                 <h1 class="editorial-heading font-serif text-5xl md:text-7xl lg:text-[5.5rem] text-brand-parchment mb-8 animate-fade-in-up delay-100">
                     Συνθετική Ψυχοθεραπεία.
                 </h1>
@@ -166,39 +184,56 @@
         </div>
     </section>
 
+    <!-- Profile Section -->
     <section id="about" class="py-32 px-6 bg-brand-parchment relative">
-        <div class="max-w-[90rem] mx-auto grid lg:grid-cols-12 gap-16 items-center">
-            <div class="lg:col-span-5 relative group reveal">
+        <div class="max-w-[90rem] mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+            
+            <!-- Desktop Image (Hidden on mobile to change order) -->
+            <div class="hidden lg:block lg:col-span-5 relative group reveal">
                 <div class="aspect-[3/4] overflow-hidden shadow-2xl">
                     <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/himts2.jpg" alt="Αντώνης Τσουρουνάκης" class="w-full h-full object-cover img-editorial">
                 </div>
                 <div class="absolute -bottom-6 -right-6 w-full h-full border border-brand-forest/20 z-[-1] transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2"></div>
             </div>
 
+            <!-- Content Area -->
             <div class="lg:col-span-7 reveal delay-100">
-                <span class="subtle-tracking text-brand-terracotta text-sm mb-4 block">Το Προφιλ</span>
                 <h2 class="editorial-heading font-serif text-4xl lg:text-5xl text-brand-forest mb-10">Η Επιστήμη συναντά την Αφήγηση</h2>
                 
                 <div class="space-y-6 text-brand-forest/80 font-light text-lg leading-relaxed">
                     <p>
                         Ο <strong>Αντώνης Τσουρουνάκης (MSc)</strong> είναι αδειούχος Ψυχολόγος - Ψυχοθεραπευτής (Αρ. Αδείας: 12069) και διατηρεί τα ιδιωτικά του γραφεία στα Χανιά και στα Ιλίσια (Αθήνα), ενώ παράλληλα παρέχει διαδικτυακές συνεδρίες. Αποφοίτησε από το Τμήμα Ψυχολογίας του Εθνικού και Καποδιστριακού Πανεπιστημίου Αθηνών (ΕΚΠΑ) με αριστερή επίδοση (βαθμός πτυχίου 8.4/10) και εξειδικεύτηκε σε μεταπτυχιακό επίπεδο στη Συνθετική Ψυχοθεραπεία και Συμβουλευτική.
                     </p>
+
+                    <!-- Mobile Image (Hidden on desktop, placed right after 1st paragraph) -->
+                    <div class="block lg:hidden relative group my-10">
+                        <div class="aspect-[3/4] overflow-hidden shadow-2xl">
+                            <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/himts2.jpg" alt="Αντώνης Τσουρουνάκης" class="w-full h-full object-cover img-editorial">
+                        </div>
+                        <div class="absolute -bottom-4 -right-4 w-full h-full border border-brand-forest/20 z-[-1]"></div>
+                    </div>
+
                     <p>
-                        Η κλινική του φαρέτρα περιλαμβάνει πλούσια εμπειρία σε απαιτητικές δομές της δημόσιας υγείας και της κοινότητας. Έχει εργαστεί στη Μονάδα Οικογενειακής Θεραπείας του Ψυχιατρικού Νοσοκομείου Αθηνών (ΨΝΑ Δαφνί), σε κρατικές δομές υποστήριξης Α.Μ.Ε.Α., καθώς και ως ειδικευόμενος Ψυχολόγος στο Γενικό Νοσοκομείο Αεροπορίας (251 ΓΝΑ).
+                        Η κλινική του φαρέτρα περιλαμβάνει πλούσια εμπειρία σε απαιτητικές δομές της δημόσιας υγείας και της κοινότητας. Έχει εργαστεί στη Μονάδα Οικογενειακής Θεραπείας του Ψυχιατρικού Νοσοκομείου Αθηνών (ΨΝΑ Δαφνί), σε κρατικές δομές υποστήριξης Α.Μ.Ε.Α. του Υπουργείου Υγείας, καθώς και ως ειδικευόμενος Ψυχολόγος στο Γενικό Νοσοκομείο Αεροπορίας (251 ΓΝΑ). Παράλληλα, έχει επιδείξει έντονη ερευνητική δραστηριότητα ως μέλος της ΜΚΟ Ε.Κ.ΚΛΙ.ΨΥ., ενώ μέχρι και σήμερα προσφέρει εθελοντικά τις υπηρεσίες του στο Σωματείο Ελλήνων Ηθοποιών (ΣΕΗ).
                     </p>
                     <blockquote class="border-l border-brand-ochre pl-8 py-4 my-10 font-serif text-2xl text-brand-forest italic">
                         "Συνδυάζουμε τεχνικές με έναν και μοναδικό σκοπό: να ακούσουμε τη δική σας ξεχωριστή αφήγηση."
                     </blockquote>
                     <p>
-                        Ως Συνθετικός Θεραπευτής, δεν εγκλωβίζεται σε δογματικά πλαίσια. Συνδυάζει τεχνικές από την Ψυχοδυναμική, τη Γνωσιακή Συμπεριφορική (CBT) και την Προσωποκεντρική προσέγγιση. Με οδηγό τη βαθιά αποδοχή, τη συμπερίληψη (ενδυνάμωση LGBTQI+ ατόμων) και την αποδεδειγμένη εμπιστοσύνη, σας προσκαλεί να κάνετε στον εαυτό σας το πιο ουσιαστικό δώρο.
+                        Ως Συνθετικός Θεραπευτής, ο κ. Τσουρουνάκης δεν εγκλωβίζεται σε δογματικά πλαίσια. Συνδυάζει τεχνικές από την Ψυχοδυναμική, τη Γνωσιακή Συμπεριφορική (CBT) και την Προσωποκεντρική προσέγγιση, με έναν και μοναδικό σκοπό: να ακούσει τη δική σας ξεχωριστή αφήγηση. Με οδηγό τη βαθιά αποδοχή, τη συμπερίληψη (ενδυνάμωση LGBTQI+ ατόμων) και την αποδεδειγμένη εμπιστοσύνη των θεραπευόμενών του (12+ συστάσεις), σας προσκαλεί να κάνετε στον εαυτό σας το πιο ουσιαστικό δώρο: μια υγιή συνεργασία που θα καταστήσει την καθημερινότητά σας πιο λειτουργική, βιώσιμη και ευχάριστη.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Services Section -->
     <section id="services" class="py-32 px-6 bg-brand-forest relative text-brand-parchment">
-        <div class="max-w-[90rem] mx-auto">
+        <!-- Abstract Background Glows -->
+        <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-brand-ochre/5 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-brand-terracotta/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div class="max-w-[90rem] mx-auto relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-end mb-20 reveal">
                 <div class="max-w-2xl">
                     <span class="subtle-tracking text-brand-ochre text-sm mb-4 block">Εξειδικευση</span>
@@ -206,66 +241,78 @@
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="group border border-brand-parchment/20 p-10 hover:bg-brand-parchment/5 transition-colors duration-500 reveal">
-                    <div class="flex justify-between items-start mb-8">
-                        <i data-lucide="user" class="w-8 h-8 text-brand-ochre"></i>
-                        <span class="text-xs tracking-widest text-brand-parchment/50">50 ΛΕΠΤΑ</span>
+            <div class="grid lg:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card group relative p-10 bg-brand-parchment/5 border border-brand-parchment/10 overflow-hidden backdrop-blur-sm reveal">
+                    <div class="absolute inset-0 bg-brand-ochre/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-8">
+                            <i data-lucide="user" class="w-8 h-8 text-brand-ochre transform group-hover:scale-110 transition-transform duration-500"></i>
+                            <span class="text-xs tracking-widest text-brand-parchment/50">50 ΛΕΠΤΑ</span>
+                        </div>
+                        <h3 class="font-serif text-2xl mb-4 text-brand-parchment">Ατομική Συνθετική Ψυχοθεραπεία & Άγχος Ενηλίκων</h3>
+                        <p class="font-light text-brand-parchment/70 leading-relaxed">
+                            Κάθε άνθρωπος αντιλαμβάνεται και βιώνει το στρες με τον δικό του, μοναδικό τρόπο. Μέσα από το Συνθετικό μοντέλο, προσαρμόζουμε τη θεραπεία στα δικά σας μέτρα. Αξιοποιώντας τη δομή της CBT για τη διαχείριση του καθημερινού άγχους και το βάθος της Ψυχοδυναμικής προσέγγισης, εντοπίζουμε τις εσωτερικές συγκρούσεις και τις αλληλεπιδράσεις που σας πιέζουν, βοηθώντας σας να βρείτε ξανά την προσωπική σας ισορροπία.
+                        </p>
                     </div>
-                    <h3 class="font-serif text-2xl mb-4 text-brand-parchment">Ατομική Συνθετική Ψυχοθεραπεία & Άγχος</h3>
-                    <p class="font-light text-brand-parchment/70 leading-relaxed mb-8">
-                        Προσαρμόζουμε τη θεραπεία στα δικά σας μέτρα. Αξιοποιώντας τη δομή της CBT για τη διαχείριση του καθημερινού άγχους και το βάθος της Ψυχοδυναμικής προσέγγισης, εντοπίζουμε τις εσωτερικές συγκρούσεις και βοηθάμε να βρείτε ξανά την ισορροπία σας.
-                    </p>
-                    <a href="#contact" class="inline-flex items-center text-sm font-medium text-brand-ochre group-hover:text-brand-parchment transition-colors">
-                        ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ <i data-lucide="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-2 transition-transform"></i>
-                    </a>
                 </div>
 
-                <div class="group border border-brand-parchment/20 p-10 hover:bg-brand-parchment/5 transition-colors duration-500 reveal delay-100">
-                    <div class="flex justify-between items-start mb-8">
-                        <i data-lucide="heart" class="w-8 h-8 text-brand-ochre"></i>
-                        <span class="text-xs tracking-widest text-brand-parchment/50">AFFIRMATIVE</span>
+                <!-- Service 2 -->
+                <div class="service-card group relative p-10 bg-brand-parchment/5 border border-brand-parchment/10 overflow-hidden backdrop-blur-sm reveal delay-100">
+                    <div class="absolute inset-0 bg-brand-terracotta/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-8">
+                            <i data-lucide="heart" class="w-8 h-8 text-brand-ochre transform group-hover:scale-110 transition-transform duration-500"></i>
+                            <span class="text-xs tracking-widest text-brand-parchment/50">AFFIRMATIVE</span>
+                        </div>
+                        <h3 class="font-serif text-2xl mb-4 text-brand-parchment">Προσωπική Ανάπτυξη, Σχέσεις & LGBTQI+ Ενδυνάμωση</h3>
+                        <p class="font-light text-brand-parchment/70 leading-relaxed">
+                            Η θεραπευτική διαδικασία αποτελεί έναν χώρο απόλυτης ελευθερίας, απαλλαγμένο από κάθε ίχνος στερεοτύπων και κριτικής. Προσφέρεται εξειδικευμένη, επιβεβαιωτική (affirmative) ψυχοθεραπεία και ενδυνάμωση σε LGBTQI+ άτομα. Εστιάζουμε στην ενίσχυση της αυτοεκτίμησης, στην επίλυση προβλημάτων στις διαπροσωπικές σχέσεις και στην αυθεντική αποδοχή του εαυτού σας.
+                        </p>
                     </div>
-                    <h3 class="font-serif text-2xl mb-4 text-brand-parchment">Προσωπική Ανάπτυξη & LGBTQI+ Ενδυνάμωση</h3>
-                    <p class="font-light text-brand-parchment/70 leading-relaxed mb-8">
-                        Ένας χώρος απόλυτης ελευθερίας, απαλλαγμένος από στερεότυπα. Εξειδικευμένη, επιβεβαιωτική (affirmative) ψυχοθεραπεία σε LGBTQI+ άτομα. Εστιάζουμε στην αυτοεκτίμηση και στην αυθεντική αποδοχή του εαυτού σας.
-                    </p>
-                    <a href="#contact" class="inline-flex items-center text-sm font-medium text-brand-ochre group-hover:text-brand-parchment transition-colors">
-                        ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ <i data-lucide="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-2 transition-transform"></i>
-                    </a>
                 </div>
 
-                <div class="group border border-brand-parchment/20 p-10 hover:bg-brand-parchment/5 transition-colors duration-500 reveal">
-                    <div class="flex justify-between items-start mb-8">
-                        <i data-lucide="users" class="w-8 h-8 text-brand-ochre"></i>
-                        <span class="text-xs tracking-widest text-brand-parchment/50">50 ΛΕΠΤΑ</span>
+                <!-- Service 3 -->
+                <div class="service-card group relative p-10 bg-brand-parchment/5 border border-brand-parchment/10 overflow-hidden backdrop-blur-sm reveal">
+                    <div class="absolute inset-0 bg-brand-ochre/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-8">
+                            <i data-lucide="users" class="w-8 h-8 text-brand-ochre transform group-hover:scale-110 transition-transform duration-500"></i>
+                            <span class="text-xs tracking-widest text-brand-parchment/50">50 ΛΕΠΤΑ</span>
+                        </div>
+                        <h3 class="font-serif text-2xl mb-4 text-brand-parchment">Συμβουλευτική Γονέων & Οικογενειακές Δυναμικές</h3>
+                        <p class="font-light text-brand-parchment/70 leading-relaxed">
+                            Αντλώντας από την πολύτιμη προϋπηρεσία του στη Μονάδα Οικογενειακής Θεραπείας του Ψυχιατρικού Νοσοκομείου Αθηνών, ο ψυχολόγος υποστηρίζει το οικογενειακό σύστημα στις δύσκολες μεταβάσεις του. Παρέχεται εξειδικευμένη συμβουλευτική σε γονείς, προσφέροντας πρακτικά εργαλεία για την αποκωδικοποίηση της συμπεριφοράς των παιδιών, τη βελτίωση της επικοινωνίας και τη διαχείριση των κρίσεων.
+                        </p>
                     </div>
-                    <h3 class="font-serif text-2xl mb-4 text-brand-parchment">Συμβουλευτική Γονέων & Οικογένεια</h3>
-                    <p class="font-light text-brand-parchment/70 leading-relaxed mb-8">
-                        Υποστήριξη του οικογενειακού συστήματος στις δύσκολες μεταβάσεις του. Παρέχεται εξειδικευμένη συμβουλευτική σε γονείς, προσφέροντας εργαλεία για τη βελτίωση της επικοινωνίας και τη διαχείριση κρίσεων.
-                    </p>
-                    <a href="#contact" class="inline-flex items-center text-sm font-medium text-brand-ochre group-hover:text-brand-parchment transition-colors">
-                        ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ <i data-lucide="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-2 transition-transform"></i>
-                    </a>
                 </div>
 
-                <div class="group border border-brand-parchment/20 p-10 hover:bg-brand-parchment/5 transition-colors duration-500 reveal delay-100">
-                    <div class="flex justify-between items-start mb-8">
-                        <i data-lucide="laptop" class="w-8 h-8 text-brand-ochre"></i>
-                        <span class="text-xs tracking-widest text-brand-parchment/50">ONLINE / 50 ΛΕΠΤΑ</span>
+                <!-- Service 4 -->
+                <div class="service-card group relative p-10 bg-brand-parchment/5 border border-brand-parchment/10 overflow-hidden backdrop-blur-sm reveal delay-100">
+                    <div class="absolute inset-0 bg-brand-terracotta/10 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-8">
+                            <i data-lucide="laptop" class="w-8 h-8 text-brand-ochre transform group-hover:scale-110 transition-transform duration-500"></i>
+                            <span class="text-xs tracking-widest text-brand-parchment/50">ONLINE / 50 ΛΕΠΤΑ</span>
+                        </div>
+                        <h3 class="font-serif text-2xl mb-4 text-brand-parchment">Διαδικτυακή Ψυχοθεραπεία (Online)</h3>
+                        <p class="font-light text-brand-parchment/70 leading-relaxed">
+                            Για να διασφαλιστεί η σταθερότητα της θεραπευτικής σχέσης, ανεξάρτητα από γεωγραφικούς περιορισμούς, επαγγελματικά ταξίδια ή φορτωμένα προγράμματα, όλες οι υπηρεσίες παρέχονται και διαδικτυακά. Οι online συνεδρίες διεξάγονται μέσω ασφαλούς βιντεοκλήσης, προσφέροντας την ίδια ζεστασιά, εχεμύθεια και κλινική αποτελεσματικότητα με τις συναντήσεις στα γραφεία.
+                        </p>
                     </div>
-                    <h3 class="font-serif text-2xl mb-4 text-brand-parchment">Διαδικτυακή Ψυχοθεραπεία</h3>
-                    <p class="font-light text-brand-parchment/70 leading-relaxed mb-8">
-                        Για να διασφαλιστεί η σταθερότητα της θεραπευτικής σχέσης, ανεξάρτητα από γεωγραφικούς περιορισμούς. Διεξάγονται μέσω ασφαλούς βιντεοκλήσης με την ίδια ζεστασιά και κλινική αποτελεσματικότητα.
-                    </p>
-                    <a href="#contact" class="inline-flex items-center text-sm font-medium text-brand-ochre group-hover:text-brand-parchment transition-colors">
-                        ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ <i data-lucide="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-2 transition-transform"></i>
-                    </a>
                 </div>
+            </div>
+
+            <!-- Single Minimal Contact Button -->
+            <div class="mt-20 text-center reveal">
+                <a href="#contact" class="group inline-flex items-center gap-3 border-b-2 border-brand-ochre pb-2 text-brand-ochre hover:text-brand-parchment hover:border-brand-parchment transition-colors uppercase tracking-widest text-sm font-bold">
+                    ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ <i data-lucide="arrow-right" class="w-5 h-5 transform group-hover:translate-x-2 transition-transform"></i>
+                </a>
             </div>
         </div>
     </section>
 
+    <!-- Philosophy Section (Theatrical metaphor) -->
     <section id="philosophy" class="py-32 px-6 bg-brand-parchment relative border-t border-brand-forest/10">
         <div class="max-w-[90rem] mx-auto grid lg:grid-cols-2 gap-20 items-center">
             
@@ -274,24 +321,24 @@
                 <h2 class="editorial-heading font-serif text-4xl lg:text-5xl text-brand-forest mb-10">Η "Σκηνοθεσία" της Πραγματικότητας</h2>
                 <div class="space-y-6 text-brand-forest/80 font-light text-lg leading-relaxed">
                     <p>
-                        Στο ακαδημαϊκό και κλινικό μου βιογραφικό θα παρατηρήσετε μια εθελοντική προσφορά στο <strong>Σωματείο Ελλήνων Ηθοποιών (ΣΕΗ)</strong>. Αυτή η εμπειρία δεν είναι απλώς μια ενασχόληση· είναι ένα πολύτιμο φίλτρο που εμπλουτίζει τον τρόπο που σας ακούω.
+                        Στο ακαδημαϊκό και κλινικό μου βιογραφικό θα παρατηρήσετε μια μάλλον ασυνήθιστη δραστηριότητα: την εθελοντική μου προσφορά και συνεργασία με το <strong>Σωματείο Ελλήνων Ηθοποιών (ΣΕΗ)</strong>. Αυτή η εμπειρία δεν είναι απλώς μια παράλληλη ενασχόληση· είναι ένα πολύτιμο φίλτρο που εμπλουτίζει τον τρόπο που σας ακούω μέσα στο θεραπευτικό δωμάτιο.
                     </p>
                     <p>
-                        Η τέχνη του θεάτρου και η ψυχολογία μοιράζονται έναν κοινό πυρήνα. Στην καθημερινότητά μας, όλοι καλούμαστε να «παίξουμε» ρόλους — του τέλειου παιδιού, του επιτυχημένου επαγγελματία, του ανθεκτικού συντρόφου.
+                        Η τέχνη του θεάτρου και η επιστήμη της ψυχολογίας μοιράζονται έναν κοινό πυρήνα: την εξερεύνηση της ανθρώπινης κατάστασης. Στην καθημερινότητά μας, όλοι μας καλούμαστε να «παίξουμε» διαφορετικούς ρόλους — του τέλειου παιδιού, του επιτυχημένου επαγγελματία, του ανθεκτικού συντρόφου, του αλάνθαστου γονέα.
                     </p>
                     
                     <ul class="mt-8 space-y-6">
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-brand-ochre mt-2.5 mr-4 shrink-0 rounded-full"></span>
-                            <p><strong>Όταν ο Ρόλος γίνεται "Κουστούμι" που Πνίγει:</strong> Στο γραφείο μου, βγάζουμε αυτά τα βαριά κοινωνικά κουστούμια για να ανακαλύψετε ποιος πραγματικά είστε κάτω από τον ρόλο.</p>
+                            <p><strong>Όταν ο Ρόλος γίνεται "Κουστούμι" που Πνίγει:</strong> Πολλές φορές, οι άνθρωποι παθαίνουν άγχος ή κατάθλιψη επειδή ο ρόλος που τους επέβαλε η οικογένεια ή η κοινωνία έχει γίνει πολύ στενός. Στο γραφείο μου, βγάζουμε αυτά τα βαριά κοινωνικά κουστούμια για να ανακαλύψετε ποιος πραγματικά είστε κάτω από τον ρόλο.</p>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-brand-ochre mt-2.5 mr-4 shrink-0 rounded-full"></span>
-                            <p><strong>Η Μοναδικότητα της "Παράστασης":</strong> Το καθήκον μου είναι να καθίσω στη θέση του προσεκτικού θεατή, να καταλάβω τη δική σας οπτική και μαζί να δώσουμε νέο, υγιές νόημα.</p>
+                            <p><strong>Η Μοναδικότητα της "Παράστασης":</strong> Το καθήκον μου ως Συνθετικός Ψυχολόγος δεν είναι να σας επιβάλω τη δική μου λογική. Είναι να καθίσω στη θέση του προσεκτικού θεατή, να καταλάβω τη δική σας μοναδική οπτική και μαζί να δώσουμε ένα νέο, υγιές νόημα στην πραγματικότητά σας.</p>
                         </li>
                         <li class="flex items-start">
                             <span class="w-1.5 h-1.5 bg-brand-ochre mt-2.5 mr-4 shrink-0 rounded-full"></span>
-                            <p><strong>Από τη Σκηνή στη Γείωση:</strong> Η θητεία μου σε νοσοκομεία με έμαθε να είμαι απόλυτα γειωμένος. Δουλεύουμε για να γίνει η καθημερινότητά σας λειτουργική και απολαυστική.</p>
+                            <p><strong>Από τη Σκηνή στη Γείωση:</strong> Η θητεία μου σε νοσοκομεία και σε βαριές ψυχιατρικές δομές με έχει μάθει να είμαι απόλυτα γειωμένος. Είναι μια έντιμη συνεργασία, όπου δουλεύουμε για να γίνει η δική σας καθημερινότητα πιο λειτουργική, βιώσιμη και απολαυστική.</p>
                         </li>
                     </ul>
                 </div>
@@ -307,6 +354,7 @@
         </div>
     </section>
 
+    <!-- Gallery / Space Section -->
     <section id="space" class="py-32 px-6 bg-brand-forest text-brand-parchment">
         <div class="max-w-[90rem] mx-auto text-center mb-20 reveal">
             <span class="subtle-tracking text-brand-ochre text-sm mb-4 block">Αισθητικη</span>
@@ -314,60 +362,161 @@
             <p class="font-light text-brand-parchment/70 mt-6 max-w-2xl mx-auto">Ένα περιβάλλον απόλυτης αποδοχής, σχεδιασμένο να αποπνέει ηρεμία. Περιηγηθείτε στους χώρους των γραφείων μας.</p>
         </div>
 
+        <!-- 33 Images Grid: Smaller & Symmetric Multiple Columns Masonry -->
         <div class="max-w-[90rem] mx-auto masonry reveal delay-100">
-            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/1.jpg')">
-                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/1.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
-                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            <!-- Full Array of Images -->
+            <!-- Note: JavaScript is often used to map these elegantly, but generating the raw HTML here as requested for copy/paste -->
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/1.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/1.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
             </button>
-            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/2.jpg')">
-                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/2.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
-                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/2.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/2.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
             </button>
-            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/3.jpg')">
-                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/3.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
-                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/3.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/3.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
             </button>
-            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/4.jpg')">
-                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/4.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
-                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/4.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/4.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
             </button>
-            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/5ts.jpg')">
-                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/5ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
-                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/5ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/5ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
             </button>
-            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/10ts.jpg')">
-                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/10ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
-                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/6ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/6ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
             </button>
-            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/11ts.jpg')">
-                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/11ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
-                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/7ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/7ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
             </button>
-             <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/18ts.jpg')">
-                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/18ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
-                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/8ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/8ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
             </button>
-            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/26ts.jpg')">
-                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/26ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
-                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/9ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/9ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/10ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/10ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/11ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/11ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/12ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/12ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/13ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/13ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/14ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/14ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/15ta.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/15ta.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/16ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/16ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/17ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/17ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/18ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/18ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/19ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/19ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/20ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/20ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/21ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/21ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/22ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/22ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/23ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/23ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/24ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/24ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/25ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/25ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/33ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/33ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/32ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/32ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/26ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/26ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/27ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/27ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/28ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/28ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/29ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/29ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/30ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/30ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/31ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/31ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
+                <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
             </button>
         </div>
     </section>
 
+    <!-- Reviews Section -->
     <section class="py-32 bg-brand-parchment overflow-hidden border-b border-brand-forest/10 relative">
         <div class="max-w-[90rem] mx-auto px-6 mb-16 text-center reveal">
-            <span class="subtle-tracking text-brand-terracotta text-sm mb-4 block">Μαρτυριες</span>
             <h2 class="editorial-heading font-serif text-4xl lg:text-5xl text-brand-forest mb-6">Η Εμπιστοσύνη σας</h2>
             <p class="font-light text-brand-forest/70">Η θεραπευτική σχέση μέσα από τα δικά σας λόγια.</p>
         </div>
 
         <div class="w-full overflow-hidden relative pb-10">
+            <!-- Fade gradients for edge of marquee -->
             <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-brand-parchment to-transparent z-10"></div>
             <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-brand-parchment to-transparent z-10"></div>
             
             <div class="marquee-container animate-marquee">
+                <!-- Group 1 -->
                 <div class="flex space-x-8 px-4">
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -382,7 +531,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">Ευαγγελία</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -397,7 +546,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">Στέλλα</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -412,7 +561,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">Irena</p>
                         </div>
                     </div>
-                     <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                     <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -427,7 +576,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">giorgos</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -442,7 +591,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">Xenos</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -457,7 +606,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">Μαριλίζα</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -472,7 +621,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">Παναγιώτης</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -489,8 +638,9 @@
                     </div>
                 </div>
 
+                <!-- Duplicate Group for seamless loop -->
                 <div class="flex space-x-8 px-4" aria-hidden="true">
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -505,7 +655,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">Ευαγγελία</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -520,7 +670,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">Στέλλα</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -535,7 +685,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">Irena</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -550,7 +700,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">giorgos</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -565,7 +715,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">Xenos</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -580,7 +730,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">Μαριλίζα</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -595,7 +745,7 @@
                             <p class="font-medium text-brand-forest text-sm tracking-wide">Παναγιώτης</p>
                         </div>
                     </div>
-                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
                         <div class="flex justify-between items-start mb-6">
                             <div>
                                 <div class="flex text-brand-ochre mb-2">
@@ -613,6 +763,7 @@
                 </div>
             </div>
 
+            <!-- Action Buttons -->
             <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mt-16 reveal">
                 <a href="https://www.doctoranytime.gr/d/Psychologos/tsourounakis-antonis#review-section" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-8 py-3 bg-white border border-brand-forest/10 shadow-sm hover:shadow-md transition-all duration-300">
                     <span class="text-sm font-medium text-brand-forest tracking-wide">Περισσότερα στο</span>
@@ -621,12 +772,18 @@
                 
                 <a href="https://www.google.com/search?client=safari&hs=PpKV&sa=X&sca_esv=cb596a67502e2f5f&rls=en&biw=1728&bih=994&sxsrf=ANbL-n5Kn9dI7WKlKjZyKnD9lO40zdldrw:1780385906434&q=Αντώνης+Τσουρουνάκης,+MSc+Ψυχολόγος+-+Ψυχοθεραπευτής+Reviews&rflfq=1&num=20#lkt=LocalPoiReviews" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-8 py-3 bg-white border border-brand-forest/10 shadow-sm hover:shadow-md transition-all duration-300">
                     <span class="text-sm font-medium text-brand-forest tracking-wide">Αξιολογήσεις στο</span>
-                    <i data-lucide="chrome" class="w-5 h-5 text-brand-forest group-hover:scale-105 transition-transform"></i>
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 group-hover:scale-105 transition-transform" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
+                    </svg>
                 </a>
             </div>
         </div>
     </section>
 
+    <!-- Lightbox -->
     <div id="lightbox" class="fixed inset-0 z-[100] bg-brand-forest/95 flex items-center justify-center cursor-zoom-out" onclick="closeLightbox()">
         <button class="absolute top-8 right-8 text-brand-parchment hover:text-brand-ochre transition-colors">
             <i data-lucide="x" class="w-10 h-10"></i>
@@ -634,20 +791,20 @@
         <img id="lightbox-img" src="" alt="Enlarged View" class="max-w-[90vw] max-h-[90vh] object-contain shadow-2xl cursor-default" onclick="event.stopPropagation()">
     </div>
 
+    <!-- Footer / Contact -->
     <footer id="contact" class="bg-brand-forest text-brand-parchment pt-32 pb-12 relative overflow-hidden">
         <div class="max-w-[90rem] mx-auto px-6 relative z-10">
             <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-16 mb-24">
                 
                 <div class="lg:col-span-5 reveal">
-                    <a href="#" class="inline-block mb-10">
-                        <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/logo_transparency.png" alt="Logo" class="w-24 h-24 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity">
+                    <a href="#" class="inline-block mb-10 group relative flex items-center justify-center w-20 h-20 bg-brand-parchment/10 backdrop-blur-md rounded-full border border-brand-parchment/20 transition-all duration-700 hover:border-brand-ochre/50">
+                        <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/logo_transparency.png" alt="Logo" class="w-12 h-12 object-contain filter brightness-0 invert opacity-80 group-hover:opacity-100 transition-all duration-500 transform group-hover:scale-110">
                     </a>
                     <h3 class="editorial-heading font-serif text-3xl mb-6">Ξεκινήστε το ταξίδι σας.</h3>
                     <p class="text-brand-parchment/60 font-light mb-10 max-w-sm leading-relaxed">
                         Επικοινωνήστε μαζί μας για να ορίσουμε την πρώτη σας συνεδρία σε ένα περιβάλλον απόλυτης αποδοχής.
                     </p>
                     <a href="https://www.doctoranytime.gr/d/Psychologos/tsourounakis-antonis" target="_blank" class="inline-flex items-center gap-4 bg-brand-ochre text-white px-8 py-4 text-sm font-medium tracking-widest hover:bg-brand-terracotta transition-colors duration-300">
-                        <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" alt="Doctoranytime" class="h-4 brightness-0 invert">
                         ΚΛΕΙΣΤΕ ΡΑΝΤΕΒΟΥ
                     </a>
                 </div>
@@ -686,14 +843,8 @@
 
                     <span class="subtle-tracking text-brand-ochre text-xs mb-6 block">SOCIAL MEDIA</span>
                     <div class="flex items-center gap-4">
-                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity">
-                            <img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/refs/heads/main/icons8-facebook-480.png" alt="Facebook" class="w-8 h-8">
-                        </a>
                         <a href="https://www.instagram.com/a.tsourounakis.psych" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity">
                             <img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/refs/heads/main/instagram-logo-instagram-icon-transparent-free-png.png.webp" alt="Instagram" class="w-8 h-8 object-contain">
-                        </a>
-                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity">
-                            <img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/refs/heads/main/icons8-linkedin-480.png" alt="LinkedIn" class="w-8 h-8">
                         </a>
                     </div>
                 </div>
