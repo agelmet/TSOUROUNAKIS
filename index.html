@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="el" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Αντώνης Τσουρουνάκης | Ψυχολόγος - Ψυχοθεραπευτής</title>
+    <meta name="description" content="Αντώνης Τσουρουνάκης (MSc), αδειούχος Ψυχολόγος - Ψυχοθεραπευτής. Συνθετική Ψυχοθεραπεία σε Χανιά, Ιλίσια και διαδικτυακά. Κατανοώντας τη δική σας μοναδική οπτική για τον κόσμο.">
+    <meta name="robots" content="index, follow">
+    
+    <link rel="icon" href="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/logo_transparency.png" type="image/png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            forest: '#304836',
+                            ochre: '#a5762f',
+                            parchment: '#c3c3b9',
+                            terracotta: '#8a4a20',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'marquee': 'marquee 45s linear infinite',
+                        'slow-pan': 'slowPan 30s ease-in-out infinite alternate',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(0%)' },
+                            '100%': { transform: 'translateX(-50%)' },
+                        },
+                        slowPan: {
+                            '0%': { transform: 'scale(1.05) translate(0, 0)' },
+                            '100%': { transform: 'scale(1.1) translate(-2%, -2%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #c3c3b9; color: #304836; overflow-x: hidden; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #c3c3b9; }
+        ::-webkit-scrollbar-thumb { background: #304836; }
+        ::-webkit-scrollbar-thumb:hover { background: #a5762f; }
+
+        /* Typography Elegance */
+        .editorial-heading { letter-spacing: -0.02em; line-height: 1.1; }
+        .subtle-tracking { letter-spacing: 0.15em; text-transform: uppercase; }
+
+        /* Reveal Animations */
+        .reveal { opacity: 0; transform: translateY(50px); transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        
+        /* Mobile Hero Reveal */
+        @media (max-width: 768px) {
+            .mobile-hero-text { opacity: 0; transform: translateY(20px); transition: all 1s ease 0.5s; }
+            .mobile-hero-text.visible { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hover Image Effects */
+        .img-editorial { transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 1s ease; }
+        .group:hover .img-editorial { transform: scale(1.03); filter: brightness(0.95); }
+
+        /* Marquee */
+        .marquee-container { display: flex; width: 200%; }
+        .marquee-container:hover { animation-play-state: paused; }
+
+        /* Lightbox */
+        #lightbox { opacity: 0; pointer-events: none; transition: opacity 0.4s ease; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+        #lightbox.active { opacity: 1; pointer-events: auto; }
+        #lightbox img { transform: scale(0.95); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1); }
+        #lightbox.active img { transform: scale(1); }
+
+        /* Masonry Grid */
+        .masonry { column-count: 1; column-gap: 1.5rem; }
+        @media (min-width: 640px) { .masonry { column-count: 2; } }
+        @media (min-width: 1024px) { .masonry { column-count: 3; } }
+        .masonry-item { break-inside: avoid; margin-bottom: 1.5rem; }
+    </style>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="font-sans antialiased selection:bg-brand-ochre selection:text-white">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 border-b border-transparent">
+        <div class="max-w-[90rem] mx-auto px-6 flex justify-between items-center">
+            <a href="#" class="group relative flex items-center justify-center w-24 h-24 bg-brand-parchment/10 backdrop-blur-md rounded-full shadow-[0_10px_40px_rgba(48,72,54,0.15)] border border-brand-parchment/20 transition-all duration-700 hover:shadow-[0_15px_50px_rgba(165,118,47,0.3)] hover:border-brand-ochre/50 animate-float">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/logo_transparency.png" alt="Αντώνης Τσουρουνάκης Logo" class="w-16 h-16 object-contain transform transition-transform duration-700 group-hover:rotate-12 group-hover:scale-110">
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-10">
+                <a href="#about" class="text-sm font-medium tracking-wide text-brand-parchment hover:text-brand-ochre transition-colors drop-shadow-md">ΠΡΟΦΙΛ</a>
+                <a href="#services" class="text-sm font-medium tracking-wide text-brand-parchment hover:text-brand-ochre transition-colors drop-shadow-md">ΥΠΗΡΕΣΙΕΣ</a>
+                <a href="#philosophy" class="text-sm font-medium tracking-wide text-brand-parchment hover:text-brand-ochre transition-colors drop-shadow-md">ΠΡΟΣΕΓΓΙΣΗ</a>
+                <a href="#space" class="text-sm font-medium tracking-wide text-brand-parchment hover:text-brand-ochre transition-colors drop-shadow-md">ΧΩΡΟΣ</a>
+                <a href="#contact" class="px-8 py-3 bg-brand-ochre text-white text-sm font-medium tracking-wider hover:bg-brand-terracotta transition-all duration-300 shadow-lg hover:shadow-xl">ΡΑΝΤΕΒΟΥ</a>
+            </div>
+
+            <button class="md:hidden text-brand-parchment focus:outline-none" id="mobile-menu-btn">
+                <i data-lucide="menu" class="w-8 h-8"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="absolute top-full left-0 w-full bg-brand-forest/95 backdrop-blur-lg shadow-2xl hidden flex-col items-center py-10 space-y-8 border-t border-brand-parchment/10">
+            <a href="#about" class="text-brand-parchment text-lg tracking-widest mobile-link">ΠΡΟΦΙΛ</a>
+            <a href="#services" class="text-brand-parchment text-lg tracking-widest mobile-link">ΥΠΗΡΕΣΙΕΣ</a>
+            <a href="#philosophy" class="text-brand-parchment text-lg tracking-widest mobile-link">ΠΡΟΣΕΓΓΙΣΗ</a>
+            <a href="#space" class="text-brand-parchment text-lg tracking-widest mobile-link">ΧΩΡΟΣ</a>
+            <a href="#contact" class="px-10 py-4 bg-brand-ochre text-white text-lg font-medium tracking-wider mobile-link">ΡΑΝΤΕΒΟΥ</a>
+        </div>
+    </nav>
+
+    <section class="relative min-h-[100svh] flex flex-col justify-center overflow-hidden bg-brand-forest">
+        <div class="absolute inset-0 z-0">
+            <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/herots2.jpg" alt="Αντώνης Τσουρουνάκης" class="w-full h-full object-cover object-center md:object-right opacity-60 md:opacity-80 animate-slow-pan">
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-forest/90 via-brand-forest/50 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-forest via-transparent to-transparent md:hidden"></div>
+        </div>
+
+        <div class="relative z-10 max-w-[90rem] mx-auto px-6 w-full flex flex-col md:flex-row items-center md:items-start h-full pt-32 pb-20">
+            <div class="w-full md:w-3/5 text-center md:text-left mt-auto md:mt-0 mobile-hero-text" id="hero-text-container">
+                <span class="subtle-tracking text-brand-ochre text-xs md:text-sm mb-6 block animate-fade-in-up">Αντωνης Τσουρουνακης, MSc</span>
+                <h1 class="editorial-heading font-serif text-5xl md:text-7xl lg:text-[5.5rem] text-brand-parchment mb-8 animate-fade-in-up delay-100">
+                    Συνθετική Ψυχοθεραπεία.
+                </h1>
+                <p class="text-lg md:text-xl text-brand-parchment/80 font-light max-w-xl mx-auto md:mx-0 mb-12 animate-fade-in-up delay-200 leading-relaxed">
+                    Κατανοώντας τη δική σας μοναδική οπτική για τον κόσμο. Ένας χώρος αυθεντικής αποδοχής στα Χανιά, τα Ιλίσια και διαδικτυακά.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-6 animate-fade-in-up" style="animation-delay: 0.3s;">
+                    <a href="#contact" class="group relative px-10 py-4 bg-brand-ochre text-white font-medium tracking-wide overflow-hidden transition-all duration-300 w-full sm:w-auto text-center">
+                        <span class="relative z-10">ΚΛΕΙΣΤΕ ΡΑΝΤΕΒΟΥ</span>
+                        <div class="absolute inset-0 h-full w-0 bg-brand-terracotta transition-all duration-500 ease-out group-hover:w-full z-0"></div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-32 px-6 bg-brand-parchment relative">
+        <div class="max-w-[90rem] mx-auto grid lg:grid-cols-12 gap-16 items-center">
+            <div class="lg:col-span-5 relative group reveal">
+                <div class="aspect-[3/4] overflow-hidden shadow-2xl">
+                    <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/himts2.jpg" alt="Αντώνης Τσουρουνάκης" class="w-full h-full object-cover img-editorial">
+                </div>
+                <div class="absolute -bottom-6 -right-6 w-full h-full border border-brand-forest/20 z-[-1] transition-transform duration-700 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+            </div>
+
+            <div class="lg:col-span-7 reveal delay-100">
+                <span class="subtle-tracking text-brand-terracotta text-sm mb-4 block">Το Προφιλ</span>
+                <h2 class="editorial-heading font-serif text-4xl lg:text-5xl text-brand-forest mb-10">Η Επιστήμη συναντά την Αφήγηση</h2>
+                
+                <div class="space-y-6 text-brand-forest/80 font-light text-lg leading-relaxed">
+                    <p>
+                        Ο <strong>Αντώνης Τσουρουνάκης (MSc)</strong> είναι αδειούχος Ψυχολόγος - Ψυχοθεραπευτής (Αρ. Αδείας: 12069) και διατηρεί τα ιδιωτικά του γραφεία στα Χανιά και στα Ιλίσια (Αθήνα), ενώ παράλληλα παρέχει διαδικτυακές συνεδρίες. Αποφοίτησε από το Τμήμα Ψυχολογίας του Εθνικού και Καποδιστριακού Πανεπιστημίου Αθηνών (ΕΚΠΑ) με αριστερή επίδοση (βαθμός πτυχίου 8.4/10) και εξειδικεύτηκε σε μεταπτυχιακό επίπεδο στη Συνθετική Ψυχοθεραπεία και Συμβουλευτική.
+                    </p>
+                    <p>
+                        Η κλινική του φαρέτρα περιλαμβάνει πλούσια εμπειρία σε απαιτητικές δομές της δημόσιας υγείας και της κοινότητας. Έχει εργαστεί στη Μονάδα Οικογενειακής Θεραπείας του Ψυχιατρικού Νοσοκομείου Αθηνών (ΨΝΑ Δαφνί), σε κρατικές δομές υποστήριξης Α.Μ.Ε.Α., καθώς και ως ειδικευόμενος Ψυχολόγος στο Γενικό Νοσοκομείο Αεροπορίας (251 ΓΝΑ).
+                    </p>
+                    <blockquote class="border-l border-brand-ochre pl-8 py-4 my-10 font-serif text-2xl text-brand-forest italic">
+                        "Συνδυάζουμε τεχνικές με έναν και μοναδικό σκοπό: να ακούσουμε τη δική σας ξεχωριστή αφήγηση."
+                    </blockquote>
+                    <p>
+                        Ως Συνθετικός Θεραπευτής, δεν εγκλωβίζεται σε δογματικά πλαίσια. Συνδυάζει τεχνικές από την Ψυχοδυναμική, τη Γνωσιακή Συμπεριφορική (CBT) και την Προσωποκεντρική προσέγγιση. Με οδηγό τη βαθιά αποδοχή, τη συμπερίληψη (ενδυνάμωση LGBTQI+ ατόμων) και την αποδεδειγμένη εμπιστοσύνη, σας προσκαλεί να κάνετε στον εαυτό σας το πιο ουσιαστικό δώρο.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-32 px-6 bg-brand-forest relative text-brand-parchment">
+        <div class="max-w-[90rem] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 reveal">
+                <div class="max-w-2xl">
+                    <span class="subtle-tracking text-brand-ochre text-sm mb-4 block">Εξειδικευση</span>
+                    <h2 class="editorial-heading font-serif text-4xl lg:text-5xl text-brand-parchment">Κλινικές Υπηρεσίες</h2>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="group border border-brand-parchment/20 p-10 hover:bg-brand-parchment/5 transition-colors duration-500 reveal">
+                    <div class="flex justify-between items-start mb-8">
+                        <i data-lucide="user" class="w-8 h-8 text-brand-ochre"></i>
+                        <span class="text-xs tracking-widest text-brand-parchment/50">50 ΛΕΠΤΑ</span>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-4 text-brand-parchment">Ατομική Συνθετική Ψυχοθεραπεία & Άγχος</h3>
+                    <p class="font-light text-brand-parchment/70 leading-relaxed mb-8">
+                        Προσαρμόζουμε τη θεραπεία στα δικά σας μέτρα. Αξιοποιώντας τη δομή της CBT για τη διαχείριση του καθημερινού άγχους και το βάθος της Ψυχοδυναμικής προσέγγισης, εντοπίζουμε τις εσωτερικές συγκρούσεις και βοηθάμε να βρείτε ξανά την ισορροπία σας.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-sm font-medium text-brand-ochre group-hover:text-brand-parchment transition-colors">
+                        ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ <i data-lucide="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="group border border-brand-parchment/20 p-10 hover:bg-brand-parchment/5 transition-colors duration-500 reveal delay-100">
+                    <div class="flex justify-between items-start mb-8">
+                        <i data-lucide="heart" class="w-8 h-8 text-brand-ochre"></i>
+                        <span class="text-xs tracking-widest text-brand-parchment/50">AFFIRMATIVE</span>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-4 text-brand-parchment">Προσωπική Ανάπτυξη & LGBTQI+ Ενδυνάμωση</h3>
+                    <p class="font-light text-brand-parchment/70 leading-relaxed mb-8">
+                        Ένας χώρος απόλυτης ελευθερίας, απαλλαγμένος από στερεότυπα. Εξειδικευμένη, επιβεβαιωτική (affirmative) ψυχοθεραπεία σε LGBTQI+ άτομα. Εστιάζουμε στην αυτοεκτίμηση και στην αυθεντική αποδοχή του εαυτού σας.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-sm font-medium text-brand-ochre group-hover:text-brand-parchment transition-colors">
+                        ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ <i data-lucide="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="group border border-brand-parchment/20 p-10 hover:bg-brand-parchment/5 transition-colors duration-500 reveal">
+                    <div class="flex justify-between items-start mb-8">
+                        <i data-lucide="users" class="w-8 h-8 text-brand-ochre"></i>
+                        <span class="text-xs tracking-widest text-brand-parchment/50">50 ΛΕΠΤΑ</span>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-4 text-brand-parchment">Συμβουλευτική Γονέων & Οικογένεια</h3>
+                    <p class="font-light text-brand-parchment/70 leading-relaxed mb-8">
+                        Υποστήριξη του οικογενειακού συστήματος στις δύσκολες μεταβάσεις του. Παρέχεται εξειδικευμένη συμβουλευτική σε γονείς, προσφέροντας εργαλεία για τη βελτίωση της επικοινωνίας και τη διαχείριση κρίσεων.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-sm font-medium text-brand-ochre group-hover:text-brand-parchment transition-colors">
+                        ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ <i data-lucide="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+
+                <div class="group border border-brand-parchment/20 p-10 hover:bg-brand-parchment/5 transition-colors duration-500 reveal delay-100">
+                    <div class="flex justify-between items-start mb-8">
+                        <i data-lucide="laptop" class="w-8 h-8 text-brand-ochre"></i>
+                        <span class="text-xs tracking-widest text-brand-parchment/50">ONLINE / 50 ΛΕΠΤΑ</span>
+                    </div>
+                    <h3 class="font-serif text-2xl mb-4 text-brand-parchment">Διαδικτυακή Ψυχοθεραπεία</h3>
+                    <p class="font-light text-brand-parchment/70 leading-relaxed mb-8">
+                        Για να διασφαλιστεί η σταθερότητα της θεραπευτικής σχέσης, ανεξάρτητα από γεωγραφικούς περιορισμούς. Διεξάγονται μέσω ασφαλούς βιντεοκλήσης με την ίδια ζεστασιά και κλινική αποτελεσματικότητα.
+                    </p>
+                    <a href="#contact" class="inline-flex items-center text-sm font-medium text-brand-ochre group-hover:text-brand-parchment transition-colors">
+                        ΚΛΕΙΣΤΕ ΣΥΝΕΔΡΙΑ <i data-lucide="arrow-right" class="ml-2 w-4 h-4 transform group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="philosophy" class="py-32 px-6 bg-brand-parchment relative border-t border-brand-forest/10">
+        <div class="max-w-[90rem] mx-auto grid lg:grid-cols-2 gap-20 items-center">
+            
+            <div class="order-2 lg:order-1 reveal">
+                <span class="subtle-tracking text-brand-terracotta text-sm mb-4 block">Φιλοσοφια</span>
+                <h2 class="editorial-heading font-serif text-4xl lg:text-5xl text-brand-forest mb-10">Η "Σκηνοθεσία" της Πραγματικότητας</h2>
+                <div class="space-y-6 text-brand-forest/80 font-light text-lg leading-relaxed">
+                    <p>
+                        Στο ακαδημαϊκό και κλινικό μου βιογραφικό θα παρατηρήσετε μια εθελοντική προσφορά στο <strong>Σωματείο Ελλήνων Ηθοποιών (ΣΕΗ)</strong>. Αυτή η εμπειρία δεν είναι απλώς μια ενασχόληση· είναι ένα πολύτιμο φίλτρο που εμπλουτίζει τον τρόπο που σας ακούω.
+                    </p>
+                    <p>
+                        Η τέχνη του θεάτρου και η ψυχολογία μοιράζονται έναν κοινό πυρήνα. Στην καθημερινότητά μας, όλοι καλούμαστε να «παίξουμε» ρόλους — του τέλειου παιδιού, του επιτυχημένου επαγγελματία, του ανθεκτικού συντρόφου.
+                    </p>
+                    
+                    <ul class="mt-8 space-y-6">
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-brand-ochre mt-2.5 mr-4 shrink-0 rounded-full"></span>
+                            <p><strong>Όταν ο Ρόλος γίνεται "Κουστούμι" που Πνίγει:</strong> Στο γραφείο μου, βγάζουμε αυτά τα βαριά κοινωνικά κουστούμια για να ανακαλύψετε ποιος πραγματικά είστε κάτω από τον ρόλο.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-brand-ochre mt-2.5 mr-4 shrink-0 rounded-full"></span>
+                            <p><strong>Η Μοναδικότητα της "Παράστασης":</strong> Το καθήκον μου είναι να καθίσω στη θέση του προσεκτικού θεατή, να καταλάβω τη δική σας οπτική και μαζί να δώσουμε νέο, υγιές νόημα.</p>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="w-1.5 h-1.5 bg-brand-ochre mt-2.5 mr-4 shrink-0 rounded-full"></span>
+                            <p><strong>Από τη Σκηνή στη Γείωση:</strong> Η θητεία μου σε νοσοκομεία με έμαθε να είμαι απόλυτα γειωμένος. Δουλεύουμε για να γίνει η καθημερινότητά σας λειτουργική και απολαυστική.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="order-1 lg:order-2 relative group reveal delay-100">
+                <div class="aspect-[4/5] overflow-hidden">
+                    <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/himts1.jpg" alt="Αντώνης Τσουρουνάκης Ψυχοθεραπευτής" class="w-full h-full object-cover img-editorial">
+                </div>
+                <div class="absolute -top-6 -left-6 w-32 h-32 bg-brand-forest/5 z-[-1] transition-transform duration-700 group-hover:-translate-x-2 group-hover:-translate-y-2"></div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="space" class="py-32 px-6 bg-brand-forest text-brand-parchment">
+        <div class="max-w-[90rem] mx-auto text-center mb-20 reveal">
+            <span class="subtle-tracking text-brand-ochre text-sm mb-4 block">Αισθητικη</span>
+            <h2 class="editorial-heading font-serif text-4xl lg:text-5xl text-brand-parchment">Ο Χώρος</h2>
+            <p class="font-light text-brand-parchment/70 mt-6 max-w-2xl mx-auto">Ένα περιβάλλον απόλυτης αποδοχής, σχεδιασμένο να αποπνέει ηρεμία. Περιηγηθείτε στους χώρους των γραφείων μας.</p>
+        </div>
+
+        <div class="max-w-[90rem] mx-auto masonry reveal delay-100">
+            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/1.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/1.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
+                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/2.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/2.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
+                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/3.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/3.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
+                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/4.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/4.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
+                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/5ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/5ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
+                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/10ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/10ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
+                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/11ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/11ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
+                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            </button>
+             <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/18ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/18ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
+                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            </button>
+            <button class="w-full masonry-item group relative overflow-hidden" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/26ts.jpg')">
+                <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/26ts.jpg" alt="Χώρος" class="w-full h-auto img-editorial">
+                <div class="absolute inset-0 bg-brand-forest/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-8 h-8"></i></div>
+            </button>
+        </div>
+    </section>
+
+    <section class="py-32 bg-brand-parchment overflow-hidden border-b border-brand-forest/10 relative">
+        <div class="max-w-[90rem] mx-auto px-6 mb-16 text-center reveal">
+            <span class="subtle-tracking text-brand-terracotta text-sm mb-4 block">Μαρτυριες</span>
+            <h2 class="editorial-heading font-serif text-4xl lg:text-5xl text-brand-forest mb-6">Η Εμπιστοσύνη σας</h2>
+            <p class="font-light text-brand-forest/70">Η θεραπευτική σχέση μέσα από τα δικά σας λόγια.</p>
+        </div>
+
+        <div class="w-full overflow-hidden relative pb-10">
+            <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-brand-parchment to-transparent z-10"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-brand-parchment to-transparent z-10"></div>
+            
+            <div class="marquee-container animate-marquee">
+                <div class="flex space-x-8 px-4">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Με βοήθησε πάρα πολύ ο κύριος Αντώνης, η προσέγγισή του ήταν ακριβώς αυτή που χρειαζόμουν!"</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Ευαγγελία</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Το να 'ξεκλειδώσεις' δεν είναι εύκολο, ο κος. Τσουρουνάκης όμως μου προσέφερε ένα ασφαλές περιβάλλον για να εμβαθύνω στα θέματά μου."</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Στέλλα</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Ένιωσα να στέκομαι στα πόδια μου μέσα από τις συνεδρίες. Είμαι πολύ ευχαριστημένη!"</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Irena</p>
+                        </div>
+                    </div>
+                     <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Εξαιρετικός επαγγελματίας, σου εμπνέει εμπιστοσύνη από τα πρώτα λεπτά. Τον συστήνω ανεπιφύλακτα! 10/10"</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">giorgos</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Καταπληκτικός επαγγελματίας. Με άκουσε με προσοχή και με αντιμετώπισε όπως ακριβώς περιμένεις. Τον συνιστώ ανεπιφύλακτα."</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Xenos</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Επαγγελματισμός και ενσυναίσθηση. Πολύ γρήγορα υπήρξε κλίμα οικειότητας και εμπιστοσύνης."</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Μαριλίζα</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Από την πρώτη στιγμή μου έβγαλε ένα αίσθημα εμπιστοσύνης. Εξαιρετικός επαγγελματίας και συνεπής!"</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Παναγιώτης</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Στην πρώτη συνεδρία ένιωσα πολύ άνετα. Μου ενέπνευσε πώς είναι έμπειρος. Ο χώρος ιδιαίτερα ζεστός!"</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Evangelos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex space-x-8 px-4" aria-hidden="true">
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Με βοήθησε πάρα πολύ ο κύριος Αντώνης, η προσέγγισή του ήταν ακριβώς αυτή που χρειαζόμουν!"</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Ευαγγελία</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Το να 'ξεκλειδώσεις' δεν είναι εύκολο, ο κος. Τσουρουνάκης όμως μου προσέφερε ένα ασφαλές περιβάλλον για να εμβαθύνω στα θέματά μου."</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Στέλλα</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Ένιωσα να στέκομαι στα πόδια μου μέσα από τις συνεδρίες. Είμαι πολύ ευχαριστημένη!"</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Irena</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Εξαιρετικός επαγγελματίας, σου εμπνέει εμπιστοσύνη από τα πρώτα λεπτά. Τον συστήνω ανεπιφύλακτα! 10/10"</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">giorgos</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Καταπληκτικός επαγγελματίας. Με άκουσε με προσοχή και με αντιμετώπισε όπως ακριβώς περιμένεις. Τον συνιστώ ανεπιφύλακτα."</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Xenos</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Επαγγελματισμός και ενσυναίσθηση. Πολύ γρήγορα υπήρξε κλίμα οικειότητας και εμπιστοσύνης."</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Μαριλίζα</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Από την πρώτη στιγμή μου έβγαλε ένα αίσθημα εμπιστοσύνης. Εξαιρετικός επαγγελματίας και συνεπής!"</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Παναγιώτης</p>
+                        </div>
+                    </div>
+                    <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <div class="flex text-brand-ochre mb-2">
+                                    <i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i><i data-lucide="star" class="w-4 h-4 fill-current"></i>
+                                </div>
+                                <span class="font-serif text-xl text-brand-forest">10.0</span>
+                            </div>
+                            <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-6 opacity-70" alt="DA">
+                        </div>
+                        <p class="text-brand-forest/80 font-light text-sm mb-8 leading-relaxed">"Στην πρώτη συνεδρία ένιωσα πολύ άνετα. Μου ενέπνευσε πώς είναι έμπειρος. Ο χώρος ιδιαίτερα ζεστός!"</p>
+                        <div class="border-t border-brand-forest/10 pt-4">
+                            <p class="font-medium text-brand-forest text-sm tracking-wide">Evangelos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mt-16 reveal">
+                <a href="https://www.doctoranytime.gr/d/Psychologos/tsourounakis-antonis#review-section" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-8 py-3 bg-white border border-brand-forest/10 shadow-sm hover:shadow-md transition-all duration-300">
+                    <span class="text-sm font-medium text-brand-forest tracking-wide">Περισσότερα στο</span>
+                    <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" class="h-5 group-hover:scale-105 transition-transform" alt="Doctoranytime">
+                </a>
+                
+                <a href="https://www.google.com/search?client=safari&hs=PpKV&sa=X&sca_esv=cb596a67502e2f5f&rls=en&biw=1728&bih=994&sxsrf=ANbL-n5Kn9dI7WKlKjZyKnD9lO40zdldrw:1780385906434&q=Αντώνης+Τσουρουνάκης,+MSc+Ψυχολόγος+-+Ψυχοθεραπευτής+Reviews&rflfq=1&num=20#lkt=LocalPoiReviews" target="_blank" rel="noopener noreferrer" class="group flex items-center gap-3 px-8 py-3 bg-white border border-brand-forest/10 shadow-sm hover:shadow-md transition-all duration-300">
+                    <span class="text-sm font-medium text-brand-forest tracking-wide">Αξιολογήσεις στο</span>
+                    <i data-lucide="chrome" class="w-5 h-5 text-brand-forest group-hover:scale-105 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="fixed inset-0 z-[100] bg-brand-forest/95 flex items-center justify-center cursor-zoom-out" onclick="closeLightbox()">
+        <button class="absolute top-8 right-8 text-brand-parchment hover:text-brand-ochre transition-colors">
+            <i data-lucide="x" class="w-10 h-10"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Enlarged View" class="max-w-[90vw] max-h-[90vh] object-contain shadow-2xl cursor-default" onclick="event.stopPropagation()">
+    </div>
+
+    <footer id="contact" class="bg-brand-forest text-brand-parchment pt-32 pb-12 relative overflow-hidden">
+        <div class="max-w-[90rem] mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 lg:grid-cols-12 gap-16 mb-24">
+                
+                <div class="lg:col-span-5 reveal">
+                    <a href="#" class="inline-block mb-10">
+                        <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/logo_transparency.png" alt="Logo" class="w-24 h-24 object-contain filter brightness-0 invert opacity-80 hover:opacity-100 transition-opacity">
+                    </a>
+                    <h3 class="editorial-heading font-serif text-3xl mb-6">Ξεκινήστε το ταξίδι σας.</h3>
+                    <p class="text-brand-parchment/60 font-light mb-10 max-w-sm leading-relaxed">
+                        Επικοινωνήστε μαζί μας για να ορίσουμε την πρώτη σας συνεδρία σε ένα περιβάλλον απόλυτης αποδοχής.
+                    </p>
+                    <a href="https://www.doctoranytime.gr/d/Psychologos/tsourounakis-antonis" target="_blank" class="inline-flex items-center gap-4 bg-brand-ochre text-white px-8 py-4 text-sm font-medium tracking-widest hover:bg-brand-terracotta transition-colors duration-300">
+                        <img src="https://raw.githubusercontent.com/agelmet/KARAZOLI/refs/heads/main/lgoodoc.jpg" alt="Doctoranytime" class="h-4 brightness-0 invert">
+                        ΚΛΕΙΣΤΕ ΡΑΝΤΕΒΟΥ
+                    </a>
+                </div>
+
+                <div class="lg:col-span-4 reveal delay-100">
+                    <span class="subtle-tracking text-brand-ochre text-xs mb-6 block">ΤΟΠΟΘΕΣΙΕΣ</span>
+                    <ul class="space-y-8 font-light text-brand-parchment/80">
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-brand-ochre shrink-0 mt-1"></i>
+                            <div>
+                                <p class="font-medium text-brand-parchment mb-1">Ιλίσια, Αθήνα</p>
+                                <p>Παπαδιαμαντοπούλου 42</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="map-pin" class="w-5 h-5 text-brand-ochre shrink-0 mt-1"></i>
+                            <div>
+                                <p class="font-medium text-brand-parchment mb-1">Χανιά, Κρήτη</p>
+                                <p>Αγίας Λαύρας 12</p>
+                            </div>
+                        </li>
+                        <li class="flex items-center gap-4 pt-4 border-t border-brand-parchment/10">
+                            <i data-lucide="phone" class="w-5 h-5 text-brand-ochre shrink-0"></i>
+                            <a href="tel:+306984491950" class="text-lg font-serif hover:text-brand-ochre transition-colors">698 449 1950</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="lg:col-span-3 reveal delay-200">
+                    <span class="subtle-tracking text-brand-ochre text-xs mb-6 block">ΠΛΗΡΟΦΟΡΙΕΣ</span>
+                    <div class="mb-10">
+                        <p class="font-medium text-brand-parchment mb-2">Ωράριο Λειτουργίας</p>
+                        <p class="font-light text-brand-parchment/60">Δευτέρα με Σάββατο</p>
+                        <p class="text-brand-ochre text-sm mt-1">Κατόπιν Ραντεβού</p>
+                    </div>
+
+                    <span class="subtle-tracking text-brand-ochre text-xs mb-6 block">SOCIAL MEDIA</span>
+                    <div class="flex items-center gap-4">
+                        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity">
+                            <img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/refs/heads/main/icons8-facebook-480.png" alt="Facebook" class="w-8 h-8">
+                        </a>
+                        <a href="https://www.instagram.com/a.tsourounakis.psych" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity">
+                            <img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/refs/heads/main/instagram-logo-instagram-icon-transparent-free-png.png.webp" alt="Instagram" class="w-8 h-8 object-contain">
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" class="opacity-70 hover:opacity-100 transition-opacity">
+                            <img src="https://raw.githubusercontent.com/agelmet/Image-hosting-/refs/heads/main/icons8-linkedin-480.png" alt="LinkedIn" class="w-8 h-8">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-brand-parchment/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-light text-brand-parchment/50 reveal">
+                <p>© 2026 Αντώνης Τσουρουνάκης. All rights reserved.</p>
+                <p>
+                    Designed by <a href="https://advonmedia.com" target="_blank" rel="noopener" class="text-brand-parchment hover:text-brand-ochre transition-colors font-medium">Advon Media</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+
+        // Navbar Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-brand-forest/90', 'backdrop-blur-md', 'shadow-md', 'py-4');
+                navbar.classList.remove('py-6', 'border-transparent');
+            } else {
+                navbar.classList.add('py-6', 'border-transparent');
+                navbar.classList.remove('bg-brand-forest/90', 'backdrop-blur-md', 'shadow-md', 'py-4');
+            }
+        });
+
+        // Mobile Hero Scroll Reveal
+        const heroText = document.getElementById('hero-text-container');
+        if (window.innerWidth <= 768) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    heroText.classList.add('visible');
+                }
+            }, { once: true });
+            
+            // Also reveal on touch
+            window.addEventListener('touchstart', () => {
+                heroText.classList.add('visible');
+            }, { once: true });
+        } else {
+            heroText.classList.add('visible'); // Always visible on desktop
+        }
+
+        // Scroll Reveal Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(imageSrc) {
+            lightboxImg.src = imageSrc;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('active');
+            setTimeout(() => {
+                lightboxImg.src = '';
+                document.body.style.overflow = '';
+            }, 400);
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
