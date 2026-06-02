@@ -39,6 +39,7 @@
                     animation: {
                         'fade-in-up': 'fadeInUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                         'marquee': 'marquee 45s linear infinite',
+                        'marquee-mobile': 'marquee 20s linear infinite',
                         'slow-pan': 'slowPan 30s ease-in-out infinite alternate',
                         'float': 'float 6s ease-in-out infinite',
                     },
@@ -520,7 +521,7 @@
             <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-brand-parchment to-transparent z-10 pointer-events-none"></div>
             <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-brand-parchment to-transparent z-10 pointer-events-none"></div>
             
-            <div class="marquee-container animate-marquee">
+            <div class="marquee-container animate-marquee-mobile md:animate-marquee">
                 <!-- Group 1 -->
                 <div class="flex space-x-8 px-4">
                     <div class="w-[22rem] bg-brand-parchment border border-brand-forest/20 p-10 shrink-0 relative hover:bg-white/40 transition-colors">
