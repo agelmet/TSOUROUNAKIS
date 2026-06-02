@@ -67,7 +67,7 @@
 
     <!-- Custom CSS -->
     <style>
-        body { background-color: #c3c3b9; color: #304836; overflow-x: hidden; }
+        body { background-color: #c3c3b9; color: #304836; }
         
         /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
@@ -120,7 +120,7 @@
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="font-sans antialiased selection:bg-brand-ochre selection:text-white">
+<body class="font-sans antialiased selection:bg-brand-ochre selection:text-white overflow-x-hidden w-full relative">
 
     <!-- Navigation -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6 border-b border-transparent">
@@ -155,15 +155,14 @@
     <!-- Hero Section -->
     <section class="relative min-h-[100svh] flex flex-col justify-center overflow-hidden bg-brand-forest">
         <!-- Background Image -->
-        <div class="absolute inset-0 z-0">
-            <!-- Changed object position for mobile to [25%_center] to reveal the face -->
-            <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/herots2.jpg" alt="Αντώνης Τσουρουνάκης" class="w-full h-full object-cover object-[25%_center] md:object-[60%_center] opacity-60 md:opacity-80 animate-slow-pan">
+        <div class="absolute inset-0 z-0 w-full h-full">
+            <!-- Changed object position to object-left for mobile so his face is anchored to the left -->
+            <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/herots2.jpg" alt="Αντώνης Τσουρουνάκης" class="w-full h-full object-cover object-left md:object-[60%_center] opacity-60 md:opacity-80 animate-slow-pan">
             <div class="absolute inset-0 bg-gradient-to-r from-brand-forest/90 via-brand-forest/50 to-transparent"></div>
             <!-- Darker bottom gradient for mobile readability -->
             <div class="absolute inset-0 bg-gradient-to-t from-brand-forest/90 via-transparent to-transparent md:hidden"></div>
         </div>
 
-        <!-- Pushed text container further down on mobile using pt-64 / mt-16 -->
         <div class="relative z-10 max-w-[90rem] mx-auto px-6 w-full flex flex-col md:flex-row items-center md:items-start h-full pt-64 md:pt-32 pb-20 mt-16 md:mt-0">
             <div class="w-full md:w-3/5 text-center md:text-left mt-auto md:mt-0 mobile-hero-text" id="hero-text-container">
                 <span class="subtle-tracking text-brand-ochre text-xs md:text-sm mb-6 block animate-fade-in-up">ΑΝΤΩΝΗΣ ΤΣΟΥΡΟΥΝΑΚΗΣ, MSC</span>
@@ -185,7 +184,7 @@
     </section>
 
     <!-- Profile Section -->
-    <section id="about" class="py-32 px-6 bg-brand-parchment relative">
+    <section id="about" class="py-32 px-6 bg-brand-parchment relative overflow-hidden">
         <div class="max-w-[90rem] mx-auto grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
             
             <!-- Desktop Image (Hidden on mobile to change order) -->
@@ -206,7 +205,7 @@
                     </p>
 
                     <!-- Mobile Image (Hidden on desktop, placed right after 1st paragraph) -->
-                    <div class="block lg:hidden relative group my-10">
+                    <div class="block lg:hidden relative group my-10 w-[95%]">
                         <div class="aspect-[3/4] overflow-hidden shadow-2xl">
                             <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/himts2.jpg" alt="Αντώνης Τσουρουνάκης" class="w-full h-full object-cover img-editorial">
                         </div>
@@ -228,10 +227,10 @@
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-32 px-6 bg-brand-forest relative text-brand-parchment">
+    <section id="services" class="py-32 px-6 bg-brand-forest relative text-brand-parchment overflow-hidden">
         <!-- Abstract Background Glows -->
-        <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-brand-ochre/5 rounded-full blur-[100px] pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-brand-terracotta/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-[40rem] h-[40rem] bg-brand-ochre/5 rounded-full blur-[100px] pointer-events-none transform translate-x-1/4 -translate-y-1/4"></div>
+        <div class="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-brand-terracotta/10 rounded-full blur-[100px] pointer-events-none transform -translate-x-1/4 translate-y-1/4"></div>
 
         <div class="max-w-[90rem] mx-auto relative z-10">
             <div class="flex flex-col md:flex-row justify-between items-end mb-20 reveal">
@@ -313,7 +312,7 @@
     </section>
 
     <!-- Philosophy Section (Theatrical metaphor) -->
-    <section id="philosophy" class="py-32 px-6 bg-brand-parchment relative border-t border-brand-forest/10">
+    <section id="philosophy" class="py-32 px-6 bg-brand-parchment relative border-t border-brand-forest/10 overflow-hidden">
         <div class="max-w-[90rem] mx-auto grid lg:grid-cols-2 gap-20 items-center">
             
             <div class="order-2 lg:order-1 reveal">
@@ -365,7 +364,6 @@
         <!-- 33 Images Grid: Smaller & Symmetric Multiple Columns Masonry -->
         <div class="max-w-[90rem] mx-auto masonry reveal delay-100">
             <!-- Full Array of Images -->
-            <!-- Note: JavaScript is often used to map these elegantly, but generating the raw HTML here as requested for copy/paste -->
             <button class="w-full masonry-item group relative overflow-hidden bg-brand-forest" onclick="openLightbox('https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/1.jpg')">
                 <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/1.jpg" alt="Χώρος" class="w-full h-auto img-editorial opacity-90 group-hover:opacity-100">
                 <div class="absolute inset-0 bg-brand-forest/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center"><i data-lucide="zoom-in" class="text-brand-parchment w-6 h-6"></i></div>
@@ -510,8 +508,8 @@
 
         <div class="w-full overflow-hidden relative pb-10">
             <!-- Fade gradients for edge of marquee -->
-            <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-brand-parchment to-transparent z-10"></div>
-            <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-brand-parchment to-transparent z-10"></div>
+            <div class="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-brand-parchment to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-brand-parchment to-transparent z-10 pointer-events-none"></div>
             
             <div class="marquee-container animate-marquee">
                 <!-- Group 1 -->
@@ -804,7 +802,7 @@
                     <p class="text-brand-parchment/60 font-light mb-10 max-w-sm leading-relaxed">
                         Επικοινωνήστε μαζί μας για να ορίσουμε την πρώτη σας συνεδρία σε ένα περιβάλλον απόλυτης αποδοχής.
                     </p>
-                    <a href="https://www.doctoranytime.gr/d/Psychologos/tsourounakis-antonis" target="_blank" class="inline-flex items-center gap-4 bg-brand-ochre text-white px-8 py-4 text-sm font-medium tracking-widest hover:bg-brand-terracotta transition-colors duration-300">
+                    <a href="https://www.doctoranytime.gr/d/Psychologos/tsourounakis-antonis" target="_blank" class="inline-flex items-center justify-center bg-brand-ochre text-white px-8 py-4 text-sm font-medium tracking-widest hover:bg-brand-terracotta transition-colors duration-300">
                         ΚΛΕΙΣΤΕ ΡΑΝΤΕΒΟΥ
                     </a>
                 </div>
