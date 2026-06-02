@@ -84,12 +84,6 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
         .delay-100 { transition-delay: 0.1s; }
         .delay-200 { transition-delay: 0.2s; }
-        
-        /* Mobile Hero Reveal */
-        @media (max-width: 768px) {
-            .mobile-hero-text { opacity: 0; transform: translateY(20px); transition: all 1s ease 0.5s; }
-            .mobile-hero-text.visible { opacity: 1; transform: translateY(0); }
-        }
 
         /* Hover Image Effects */
         .img-editorial { transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1), filter 1s ease; }
@@ -156,15 +150,14 @@
     <section class="relative min-h-[100svh] flex flex-col justify-center overflow-hidden bg-brand-forest">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0 w-full h-full">
-            <!-- Changed object position to object-left for mobile so his face is anchored to the left -->
             <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/herots2.jpg" alt="Αντώνης Τσουρουνάκης" class="w-full h-full object-cover object-left md:object-[60%_center] opacity-60 md:opacity-80 animate-slow-pan">
             <div class="absolute inset-0 bg-gradient-to-r from-brand-forest/90 via-brand-forest/50 to-transparent"></div>
             <!-- Darker bottom gradient for mobile readability -->
             <div class="absolute inset-0 bg-gradient-to-t from-brand-forest/90 via-transparent to-transparent md:hidden"></div>
         </div>
 
-        <div class="relative z-10 max-w-[90rem] mx-auto px-6 w-full flex flex-col md:flex-row items-center md:items-start h-full pt-64 md:pt-32 pb-20 mt-16 md:mt-0">
-            <div class="w-full md:w-3/5 text-center md:text-left mt-auto md:mt-0 mobile-hero-text" id="hero-text-container">
+        <div class="relative z-10 max-w-[90rem] mx-auto px-6 w-full flex flex-col justify-center items-center md:items-start h-full pt-28 md:pt-32 pb-20">
+            <div class="w-full md:w-3/5 text-center md:text-left" id="hero-text-container">
                 <span class="subtle-tracking text-brand-ochre text-xs md:text-sm mb-6 block animate-fade-in-up">ΑΝΤΩΝΗΣ ΤΣΟΥΡΟΥΝΑΚΗΣ, MSC</span>
                 <h1 class="editorial-heading font-serif text-5xl md:text-7xl lg:text-[5.5rem] text-brand-parchment mb-8 animate-fade-in-up delay-100">
                     Συνθετική Ψυχοθεραπεία.
@@ -239,8 +232,8 @@
         <div class="absolute bottom-0 left-0 w-[40rem] h-[40rem] bg-brand-terracotta/10 rounded-full blur-[100px] pointer-events-none transform -translate-x-1/4 translate-y-1/4"></div>
 
         <div class="max-w-[90rem] mx-auto relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-20 reveal">
-                <div class="max-w-2xl">
+            <div class="flex flex-col md:flex-row justify-between items-center md:items-end mb-20 reveal">
+                <div class="max-w-2xl text-center md:text-left w-full">
                     <span class="subtle-tracking text-brand-ochre text-sm mb-4 block">Εξειδικευση</span>
                     <h2 class="editorial-heading font-serif text-4xl lg:text-5xl text-brand-parchment">Κλινικές Υπηρεσίες</h2>
                 </div>
@@ -319,11 +312,20 @@
 
     <!-- Philosophy Section (Theatrical metaphor) -->
     <section id="philosophy" class="py-32 px-6 bg-brand-parchment relative border-t border-brand-forest/10 overflow-hidden">
-        <div class="max-w-[90rem] mx-auto grid lg:grid-cols-2 gap-20 items-center">
+        <div class="max-w-[90rem] mx-auto grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
             
             <div class="order-2 lg:order-1 reveal">
                 <span class="subtle-tracking text-brand-terracotta text-sm mb-4 block">Φιλοσοφια</span>
                 <h2 class="editorial-heading font-serif text-4xl lg:text-5xl text-brand-forest mb-10">Η "Σκηνοθεσία" της Πραγματικότητας</h2>
+                
+                <!-- Mobile Only Image: Appears right after the heading on mobile -->
+                <div class="block lg:hidden relative group my-10 w-[95%] mx-auto">
+                    <div class="aspect-[4/5] overflow-hidden shadow-2xl">
+                        <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/himts1.jpg" alt="Αντώνης Τσουρουνάκης Ψυχοθεραπευτής" class="w-full h-full object-cover img-editorial">
+                    </div>
+                    <div class="absolute -bottom-4 -right-4 w-full h-full border border-brand-forest/20 z-[-1]"></div>
+                </div>
+
                 <div class="space-y-6 text-brand-forest/80 font-light text-lg leading-relaxed">
                     <p>
                         Στο ακαδημαϊκό και κλινικό μου βιογραφικό θα παρατηρήσετε μια μάλλον ασυνήθιστη δραστηριότητα: την εθελοντική μου προσφορά και συνεργασία με το <strong>Σωματείο Ελλήνων Ηθοποιών (ΣΕΗ)</strong>. Αυτή η εμπειρία δεν είναι απλώς μια παράλληλη ενασχόληση· είναι ένα πολύτιμο φίλτρο που εμπλουτίζει τον τρόπο που σας ακούω μέσα στο θεραπευτικό δωμάτιο.
@@ -349,7 +351,8 @@
                 </div>
             </div>
 
-            <div class="order-1 lg:order-2 relative group reveal delay-100">
+            <!-- Desktop Image (Hidden on mobile) -->
+            <div class="hidden lg:block order-1 lg:order-2 relative group reveal delay-100">
                 <div class="aspect-[4/5] overflow-hidden">
                     <img src="https://raw.githubusercontent.com/agelmet/TSOUROUNAKIS/refs/heads/main/himts1.jpg" alt="Αντώνης Τσουρουνάκης Ψυχοθεραπευτής" class="w-full h-full object-cover img-editorial">
                 </div>
@@ -896,23 +899,6 @@
                 navbar.classList.remove('bg-brand-forest/90', 'backdrop-blur-md', 'shadow-md', 'py-4');
             }
         });
-
-        // Mobile Hero Scroll Reveal
-        const heroText = document.getElementById('hero-text-container');
-        if (window.innerWidth <= 768) {
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 50) {
-                    heroText.classList.add('visible');
-                }
-            }, { once: true });
-            
-            // Also reveal on touch
-            window.addEventListener('touchstart', () => {
-                heroText.classList.add('visible');
-            }, { once: true });
-        } else {
-            heroText.classList.add('visible'); // Always visible on desktop
-        }
 
         // Scroll Reveal Animations
         const observerOptions = {
